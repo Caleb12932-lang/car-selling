@@ -1,0 +1,121 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * GariSoko design system.
+ * Warm ivory surfaces, deep acacia green primary, amber accent.
+ * Display font: Sora. Body font: DM Sans (loaded via <link> in __root.tsx).
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-hero: var(--hero);
+  --color-hero-foreground: var(--hero-foreground);
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.98 0.008 95);
+  --foreground: oklch(0.22 0.025 155);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.025 155);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.025 155);
+  --primary: oklch(0.42 0.095 155);
+  --primary-foreground: oklch(0.98 0.01 95);
+  --secondary: oklch(0.93 0.015 100);
+  --secondary-foreground: oklch(0.3 0.04 155);
+  --muted: oklch(0.945 0.012 100);
+  --muted-foreground: oklch(0.5 0.02 150);
+  --accent: oklch(0.8 0.145 72);
+  --accent-foreground: oklch(0.28 0.06 70);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0.01 95);
+  --border: oklch(0.9 0.012 100);
+  --input: oklch(0.9 0.012 100);
+  --ring: oklch(0.42 0.095 155);
+  --hero: oklch(0.26 0.045 155);
+  --hero-foreground: oklch(0.97 0.01 95);
+}
+
+.dark {
+  --background: oklch(0.17 0.02 155);
+  --foreground: oklch(0.96 0.01 95);
+  --card: oklch(0.22 0.025 155);
+  --card-foreground: oklch(0.96 0.01 95);
+  --popover: oklch(0.22 0.025 155);
+  --popover-foreground: oklch(0.96 0.01 95);
+  --primary: oklch(0.75 0.12 155);
+  --primary-foreground: oklch(0.18 0.03 155);
+  --secondary: oklch(0.28 0.02 155);
+  --secondary-foreground: oklch(0.96 0.01 95);
+  --muted: oklch(0.28 0.02 155);
+  --muted-foreground: oklch(0.7 0.02 100);
+  --accent: oklch(0.8 0.145 72);
+  --accent-foreground: oklch(0.22 0.03 155);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.98 0.01 95);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.75 0.12 155);
+  --hero: oklch(0.19 0.03 155);
+  --hero-foreground: oklch(0.97 0.01 95);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility hero-surface {
+  background:
+    radial-gradient(1200px 400px at 15% -10%, oklch(0.36 0.07 155 / 0.9), transparent),
+    radial-gradient(900px 380px at 85% 120%, oklch(0.5 0.09 70 / 0.35), transparent),
+    var(--hero);
+}
+
+@utility shadow-card {
+  box-shadow: 0 1px 2px oklch(0.22 0.03 155 / 0.06), 0 8px 24px -12px oklch(0.22 0.03 155 / 0.18);
+}
